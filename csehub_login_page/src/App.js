@@ -50,6 +50,7 @@ class App extends Component {
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 this.setState({user});
+                //this.testDateBase(user);
                 var exists=true;
                 //console.log(firebase.database().ref("users/"+user.uid));
 
@@ -59,7 +60,8 @@ class App extends Component {
                     //console.log(user);
                     //this.writeUserData(user);
                    if(snapshot.val()==null){
-                       this.writeUserData(user);
+                       //this.writeUserData(user);
+                       this.testDateBase(user);
                    }
                    //console.log(exists)
                 });
@@ -83,6 +85,37 @@ class App extends Component {
         itemsRef.set(item);
     }
 
+    testDateBase(user){
+        const usersRef = firebase.database().ref("users/"+user.uid);
+        const workspacesRef = firebase.database().ref("workspaces/");
+        const widgetsRef = firebase.database().ref("widgets");
+        const widget_info={
+            url : "www.piazza.com",
+            website_name : "piazza",
+            position : 1,
+            width:{
+                medium: "w-12"
+            },
+            height: "100px"
+        }
+        var widgetPostRef=widgetsRef.push(widget_info);
+        var widgetId=widgetPostRef.key;
+        const workspaces_info={
+            name: "CSE110",
+            position : 1,
+            widget_id: widgetId
+        }
+        var workspacePostRef=workspacesRef.push(workspaces_info);
+        var workspaceId=workspacePostRef.key;
+        const user_info={
+            email:user.email,
+            workspace : workspaceId,
+            last_workspace : workspaceId,
+            background_color: "blue"
+        }
+        usersRef.set(user_info);
+
+    }
     loginSucessful(){
         //var loginOrNot="";
         // var laji="nimabi";
