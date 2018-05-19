@@ -6,7 +6,11 @@ import firebase from 'firebase';
 import firebaseui from 'firebaseui';
 import '../node_modules/firebaseui/dist/firebaseui.css';
 //import Form from './components/Form.js'
-
+import {addWidget} from "./component/addWidget.js";
+import {addWorkspace} from "./component/addWorkspace";
+import {deleteWidget} from "./component/deleteWidget";
+import {deleteWorkspace} from "./component/deleteWorkspace"
+import {initiUser} from "./component/initiUser";
 
 export const provider = new firebase.auth.GoogleAuthProvider();
 
@@ -14,15 +18,18 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            user : null
+            user : null,
+            workspace : null,
+            widget : null,
+            user_info : null
         };
         var config = {
-            apiKey: "AIzaSyAw8bha316J7zLwz-JN2GaUp3w8RioRxP0",
-            authDomain: "csehub-420.firebaseapp.com",
-            databaseURL: "https://csehub-420.firebaseio.com",
-            projectId: "csehub-420",
-            storageBucket: "csehub-420.appspot.com",
-            messagingSenderId: "719021972711"
+            apiKey: "AIzaSyCB0IqPLvU1voinSsKzpx5_C5uiD6zy1tY",
+            authDomain: "cse110firebase-420.firebaseapp.com",
+            databaseURL: "https://cse110firebase-420.firebaseio.com",
+            projectId: "cse110firebase-420",
+            storageBucket: "cse110firebase-420.appspot.com",
+            messagingSenderId: "880026239154"
         };
         firebase.initializeApp(config);
 
@@ -53,42 +60,41 @@ class App extends Component {
                 //this.testDateBase(user);
                 var exists=true;
                 //console.log(firebase.database().ref("users/"+user.uid));
-
-                const usersRef = firebase.database().ref("users");
-                usersRef.child(user.uid).on('value',(snapshot)=>{
-                    //console.log(snapshot.val());
-                    //console.log(user);
-                    //this.writeUserData(user);
-                   if(snapshot.val()==null){
-                       //this.writeUserData(user);
-                       this.testDateBase(user);
-                   }
-                   //console.log(exists)
+                initiUser(firebase,user);
+                //console.log(this.state.user_info);
+                const userRef = firebase.database().ref("users/");
+                userRef.child(user.uid).on('value',(snapshot)=>{
+                    console.log(snapshot.val());
+                    var user_data=JSON.stringify(snapshot.val());
+                    this.setState({user_info:user_data});
                 });
-                var dummy = {
-                    name : "CSE110",
-                    position: 1,
-                    widgets: ""
-                };
-                //workspace.addworkspace(dummy);
+                const workspaces_info={
+                    name: "CSE110",
+                    position : 1,
+                    widget_id: null
+                }
+                addWorkspace(firebase,workspaces_info);
+                const widget_info={
+                    url : "www.piazza.com",
+                    website_name : "piazza",
+                    position : 1,
+                    width:{
+                        medium: "w-12"
+                    },
+                    height: "100px"
+                }
+                //addWidget(firebase,widget_info);
+                //console.log(this.state.user_info);
             }
 
         });
     }
 
-    writeUserData(user){
-        const itemsRef= firebase.database().ref("users/"+user.uid);
-        const item = {
-            username: user.displayName,
-            email: user.email
-        }
-        itemsRef.set(item);
-    }
 
-    testDateBase(user){
-        const usersRef = firebase.database().ref("users/"+user.uid);
-        const workspacesRef = firebase.database().ref("workspaces/");
-        const widgetsRef = firebase.database().ref("widgets");
+    /*testDateBase(user){
+        //const usersRef = firebase.database().ref("users/"+user.uid);
+        //const workspacesRef = firebase.database().ref("workspaces/");
+        //const widgetsRef = firebase.database().ref("widgets");
         const widget_info={
             url : "www.piazza.com",
             website_name : "piazza",
@@ -98,24 +104,25 @@ class App extends Component {
             },
             height: "100px"
         }
-        var widgetPostRef=widgetsRef.push(widget_info);
-        var widgetId=widgetPostRef.key;
+        //addWidget(firebase,)
+        //var widgetPostRef=widgetsRef.push(widget_info);
+        //var widgetId=widgetPostRef.key;
         const workspaces_info={
             name: "CSE110",
             position : 1,
             widget_id: widgetId
         }
-        var workspacePostRef=workspacesRef.push(workspaces_info);
-        var workspaceId=workspacePostRef.key;
+        //var workspacePostRef=workspacesRef.push(workspaces_info);
+        //var workspaceId=workspacePostRef.key;
         const user_info={
             email:user.email,
             workspace : workspaceId,
             last_workspace : workspaceId,
             background_color: "blue"
         }
-        usersRef.set(user_info);
+        //usersRef.set(user_info);
 
-    }
+    }*/
     loginSucessful(){
         //var loginOrNot="";
         // var laji="nimabi";
@@ -173,7 +180,7 @@ class App extends Component {
         return (
             <dev>
             <dev>{this.state.user ?
-                <dev id="">{this.state.user.displayName}</dev>
+                <dev id="">{this.state.user_info}</dev>
                 :
                 <dev id="firebaseui-auth-container"></dev>
             }</dev>
