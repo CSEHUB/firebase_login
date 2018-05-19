@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ffd06544-2416-49ab-96d1-a915f2f8bf1e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/csehub_login_page/src/component/getUser.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/csehub_login_page/src/component/getWidget.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/csehub_login_page/src/component/getWorkspace.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/csehub_login_page/src/component/initiUser.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/csehub_login_page/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/csehub_login_page/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/csehub_login_page/src/component/addWidget.js" beforeDir="false" afterPath="$PROJECT_DIR$/csehub_login_page/src/component/addWidget.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/csehub_login_page/src/component/addWorkspace.js" beforeDir="false" afterPath="$PROJECT_DIR$/csehub_login_page/src/component/addWorkspace.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/csehub_login_page/src/component/deleteWidget.js" beforeDir="false" afterPath="$PROJECT_DIR$/csehub_login_page/src/component/deleteWidget.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/csehub_login_page/src/component/deleteWorkspace.js" beforeDir="false" afterPath="$PROJECT_DIR$/csehub_login_page/src/component/deleteWorkspace.js" afterDir="false" />
-    </list>
+    <list default="true" id="ffd06544-2416-49ab-96d1-a915f2f8bf1e" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -25,7 +14,7 @@
       <file leaf-file-name="App.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/csehub_login_page/src/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
+            <state relative-caret-position="476">
               <caret line="85" column="18" selection-start-line="85" selection-start-column="18" selection-end-line="85" selection-end-column="18" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
@@ -306,12 +295,12 @@
       <workItem from="1526089198596" duration="6514000" />
       <workItem from="1526174416296" duration="21764000" />
       <workItem from="1526512752495" duration="3831000" />
-      <workItem from="1526757754603" duration="11232000" />
+      <workItem from="1526757754603" duration="11682000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45805000" />
+    <option name="totallyTimeSpent" value="46255000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1381" height="925" extended-state="6" />
@@ -690,7 +679,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/csehub_login_page/src/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
+        <state relative-caret-position="476">
           <caret line="85" column="18" selection-start-line="85" selection-start-column="18" selection-end-line="85" selection-end-column="18" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
